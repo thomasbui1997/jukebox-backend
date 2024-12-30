@@ -25,4 +25,9 @@ public class RoomController {
     public List<Room> getAllRooms() {
         return roomService.getAllRooms();
     }
+
+    @GetMapping("/find")
+    public Room getRoomByInvitationCode(@RequestParam String code) {
+        return roomService.getRoomByInvitationCode(code);
+    }
 }
