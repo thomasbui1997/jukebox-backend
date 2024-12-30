@@ -26,4 +26,14 @@ public class RoomService {
         return roomRepository.findByInvitationCode(code)
                 .orElseThrow(() -> new RuntimeException("Room not found with code: " + code));
     }
+
+    public Room getRoomById(Long id) {
+        return roomRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Room not found with id: " + id));
+    }
+
+    public Room saveRoom(Room room) {
+        roomRepository.save(room);
+        return room;
+    }
 }

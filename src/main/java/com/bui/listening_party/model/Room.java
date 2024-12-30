@@ -1,6 +1,7 @@
 package com.bui.listening_party.model;
 import jakarta.persistence.*;
-
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.processing.Generated;
 
 @Entity
@@ -11,6 +12,14 @@ public class Room {
 
     private String name;
     private String invitationCode;
+
+    @ManyToMany
+    @JoinTable(
+            name = "room_song",
+            joinColumns = @JoinColumn(name = "room_id"),
+            inverseJoinColumns = @JoinColumn(name = "song_id")
+    )
+    private List<Song> songs = new ArrayList<>();
 
     // Getters and Setters
     public Long getId() {
@@ -37,4 +46,11 @@ public class Room {
         this.invitationCode = invitationCode;
     }
 
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
+    }
 }

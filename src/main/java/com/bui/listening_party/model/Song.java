@@ -11,12 +11,8 @@ public class Song {
 
     private String title;
     private String artist;
+    private int votes;
 
-    @ManyToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
-
-    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -41,12 +37,11 @@ public class Song {
         this.artist = artist;
     }
 
-    public Room getRoom() {
-        return room;
+    public int getVotes() {
+        return votes;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setVotes(int votes) {
+        this.votes = votes;
     }
-
 }
